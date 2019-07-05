@@ -10,7 +10,7 @@ include('../src/Tag/Attribute.php');
 include('../src/Tag/Tag.php');
 include('../src/Html.php');
 
-use fixmind\PhpToHtml\Html;
+use FixMind\PhpToHtml\Html;
 
 $div = Html::Create('pre')
 			->addTag('div')->addText('Hello World!')

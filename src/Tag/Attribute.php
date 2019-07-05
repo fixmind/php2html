@@ -6,7 +6,7 @@
  * Available via the MIT or new BSD @license.
  * Project: https://github.com/fixmind/phptohtml/
  */
-namespace fixmind\PhpToHtml\Tag;
+namespace FixMind\PhpToHtml\Tag;
 
 class Attribute extends Id
 {

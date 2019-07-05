@@ -25,12 +25,12 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"fixmind\\PhpToHtml\\" : "src/"
+			"FixMind\\PhpToHtml\\" : "src/"
 		}
 	},
 	"autoload-dev" : {
 		"psr-4" : {
-			"fixmind\\Tests\\PhpToHtml\\" : "tests/"
+			"FixMind\\Tests\\PhpToHtml\\" : "tests/"
 		}
 	}
 }

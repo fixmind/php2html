@@ -6,9 +6,9 @@
  * Available via the MIT or new BSD @license.
  * Project: https://github.com/fixmind/phptohtml/
  */
-namespace fixmind\PhpToHtml\Selector;
+namespace FixMind\PhpToHtml\Selector;
 
-use fixmind\PhpToHtml\Tag\Tag;
+use FixMind\PhpToHtml\Tag\Tag;
 
 class SelectorModel
 {

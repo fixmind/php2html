@@ -6,11 +6,11 @@
  * Available via the MIT or new BSD @license.
  * Project: https://github.com/fixmind/phptohtml/
  */
-namespace fixmind\Tests\PhpToHtml;
+namespace FixMind\Tests\PhpToHtml;
 
-use fixmind\PhpToHtml\Html;
-use fixmind\PhpToHtml\Selector;
-use fixmind\PhpToHtml\Selector\SelectorModel;
+use FixMind\PhpToHtml\Html;
+use FixMind\PhpToHtml\Selector;
+use FixMind\PhpToHtml\Selector\SelectorModel;
 
 class SelectorTest extends \PHPUnit\Framework\TestCase
 {

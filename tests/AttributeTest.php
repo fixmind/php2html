@@ -6,9 +6,9 @@
  * Available via the MIT or new BSD @license.
  * Project: https://github.com/fixmind/phptohtml/
  */
-namespace fixmind\Tests\PhpToHtml;
+namespace FixMind\Tests\PhpToHtml;
 
-use fixmind\PhpToHtml\Tag\Attribute;
+use FixMind\PhpToHtml\Tag\Attribute;
 
 class TagAttributeTest extends \PHPUnit\Framework\TestCase
 {
