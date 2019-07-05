@@ -9,14 +9,23 @@ echo Html::ul()->li('first point')->getParent()->li('second point');
 // </ul>
 
 // EXAMPLE 02
-echo Html::div()->h1('title')->addId('title')->getParent()->p('just text')->addClass('normal')->addStyle(['color' => 'red']);
+echo Html::div()->h1('title')->addId('title')->getParent()
+                ->p('just text')->addClass('normal')->addStyle(['color' => 'red']);
 // <div>
 //     <h1 id="title">title</h1>
 //     <p class="normal" style="color: red;">just text</p>
 // </div>
 
 // EXAMPLE 03
-$html = Html::div()->addClass('box')->ul()->li('first')->getParent()->li('second')->getParent()->li('third')->getParent()->getFirst(2)->ul()->li('subFirst')->getParent()->li('subSecond');
+$html = Html::div()->addClass('box')
+                    ->ul()
+                        ->li('first')->getParent()
+                        ->li('second')->getParent()
+                        ->li('third')->getParent()
+                    ->getFirst(2)
+                        ->ul()
+                            ->li('subFirst')->getParent()
+                            ->li('subSecond');
 echo $html;
 // <div class="box">
 //    <ul>
