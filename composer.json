@@ -1,0 +1,37 @@
+{
+	"name" : "fixmind/phptohtml",
+	"type" : "library",
+	"keywords" : [
+		"html",
+		"generator",
+		"php2html",
+		"phpToHtml",
+		"phpHtml",
+		"selector",
+		"phpManageHtml"
+	],
+	"homepage" : "https://github.com/fixmind/phptohtml",
+	"description" : "Fast and easy html generator.",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Michal Barcikowski",
+			"email" : "b@rton.it",
+			"homepage" : "https://www.webton.pl",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=5.3",
+		"phpunit/phpunit": "^8.2"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"fixmind\\PhpToHtml\\" : "src/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"fixmind\\Tests\\PhpToHtml\\" : "tests/"
+		}
+	}
+}
