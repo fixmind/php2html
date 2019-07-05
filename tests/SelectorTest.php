@@ -48,8 +48,15 @@ class SelectorTest extends \PHPUnit\Framework\TestCase
 		// 1
 		$this->assertTrue($html->selectorFirst('li.lastLi')->render() == '<li class="lastLi">last third</li>');
 		$this->assertTrue($html->selectorFirst('li')->render() == '<li class="firstClass">first li</li>');
+
 		$this->assertTrue($html->selectorLast('#idSubContainer1 li')->render() == '<li id="idThird">first third</li>');
+		$this->assertTrue($html->selectorLast('#idSubContainer1 li', 1)->render() == '<li id="idThird">first third</li>');
+		$this->assertTrue($html->selector('#idSubContainer1 li', -1)->render() == '<li id="idThird">first third</li>');
+
 		$this->assertTrue($html->selectorLast('#idSubContainer2 li.firstClass') == false);
+		$this->assertTrue($html->selectorLast('#idSubContainer2 li.firstClass', 1) == false);
+		$this->assertTrue($html->selector('#idSubContainer2 li.firstClass', -1) == false);
+
 		$this->assertTrue($html->selectorFirst('#idSubContainer2 li')->render() == '<li>first</li>');
 		$this->assertTrue($html->selectorFirst('#idSubContainer2.subContainer li')->render() == '<li>first</li>');
 		$this->assertTrue($html->selectorFirst('#idSubContainer2.subContainer.backgroundRed li')->render() == '<li>first</li>');
@@ -58,7 +65,14 @@ class SelectorTest extends \PHPUnit\Framework\TestCase
 		$this->assertTrue($html->selectorFirst('.backgroundRed.subContainer li')->getContent() == 'first');
 		$this->assertTrue($html->selectorFirst('.subContainer.backgroundRed li')->getContent() == 'first');
 		$this->assertTrue($html->selectorFirst('.backgroundRed li')->getContent() == 'first');
+		$this->assertTrue($html->selectorFirst('.backgroundRed li')->getContent() == 'first');
+		$this->assertTrue($html->selectorFirst('.backgroundRed li', 1)->getContent() == 'first');
+		$this->assertTrue($html->selector('.backgroundRed li', 1)->getContent() == 'first');
 		$this->assertTrue($html->selectorFirst('.subContainer li')->getContent() == 'first');
+		$this->assertTrue($html->selector('.subContainer li', 1)->getContent() == 'first');
+		$this->assertTrue($html->selector('.subContainer li', -1)->getContent() == 'last third');
+		$this->assertTrue($html->selector('.subContainer li', -2)->getContent() == 'second');
+		$this->assertTrue($html->selector('.subContainer li', 2)->getContent() == 'second');
 		$this->assertTrue($html->selectorFirst('.subContainer.notExists li') == false);
 		
 		// 2

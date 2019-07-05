@@ -11,19 +11,31 @@ namespace FixMind\PhpToHtml\Selector;
 class Selector extends SelectorSearch
 {
 	
-	public function selector($selector)
+	public function selector($selector, $index = 0)
 	{
-		$this->found = [];
-		$selector = $this->compileSelector($selector);
-		return $this->getPrimary()->search($selector);
+		if ($index == 0)
+		{
+			$this->found = [];
+			$selector = $this->compileSelector($selector);
+			return $this->getPrimary()->search($selector);
+		}
+		elseif ($index > 0)
+		{
+			return $this->selectorFirst($selector, $index);
+		}
+		else 
+		{
+			return $this->selectorLast($selector, -$index);
+		}
 	}
 	
-	public function selectorFirst($selector)
+	public function selectorFirst($selector, $index = 0)
 	{
+		$index = $index > 0 ? --$index : 0;
 		$found = $this->selector($selector);
 		if (count($found) > 0)
 		{
-			return $found[0];
+			return $found[$index];
 		}
 		else
 		{
@@ -31,12 +43,13 @@ class Selector extends SelectorSearch
 		}
 	}
 	
-	public function selectorLast($selector)
+	public function selectorLast($selector, $index = 0)
 	{
+		$index = $index > 0 ? --$index : 0;
 		$found = $this->selector($selector);
 		if (count($found) > 0)
 		{
-			return $found[count($found) - 1];
+			return $found[count($found) - 1 - $index];
 		}
 		else
 		{
