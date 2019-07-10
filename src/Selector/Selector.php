@@ -35,7 +35,21 @@ class Selector extends SelectorSearch
 		$found = $this->selector($selector);
 		if (count($found) > 0)
 		{
-			return $found[$index];
+			if ($index < count($found))
+			{
+				if ($index >= 0)
+				{
+					return $found[$index];
+				}
+				else
+				{
+					throw new \Exception("Selector index '{$index}' is less than zero.");
+				}
+			}
+			else
+			{
+				throw new \Exception("Selector index '{$index}' is out of range '" . count($found) . "' found elements.");
+			}
 		}
 		else
 		{
@@ -49,7 +63,21 @@ class Selector extends SelectorSearch
 		$found = $this->selector($selector);
 		if (count($found) > 0)
 		{
-			return $found[count($found) - 1 - $index];
+			if ($index < count($found))
+			{
+				if ($index >= 0)
+				{
+					return $found[count($found) - 1 - $index];
+				}
+				else
+				{
+					throw new \Exception("Selector index '{$index}' is less than zero.");
+				}
+			}
+			else
+			{
+				throw new \Exception("Selector index '{$index}' is out of range '" . count($found) . "' found elements.");
+			}
 		}
 		else
 		{

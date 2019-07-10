@@ -88,6 +88,20 @@ class SelectorTest extends \PHPUnit\Framework\TestCase
 		$this->assertTrue($html->selectorFirst('.thirdClass')->getContent() == 'last third');
 	}
 
+	/**
+	 * @dataProvider HtmlProvider
+	 */
+	public function testException($html)
+	{
+		$this->assertTrue(count($html->selector('#idSubContainer1 li')) == 3);
+
+		$this->expectExceptionMessage('Selector index');
+		$html->selectorLast('#idSubContainer1 li', 4);
+
+		$this->expectExceptionMessage('Selector index');
+		$html->selectorLast('#idSubContainer1 li', -2);
+	}
+
 	public function HtmlProvider()
 	{
 		return [
