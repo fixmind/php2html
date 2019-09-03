@@ -7,6 +7,9 @@ include('../src/Tag/Style.php');
 include('../src/Tag/ClassTag.php');
 include('../src/Tag/Id.php');
 include('../src/Tag/Attribute.php');
+include('../vendor/fixmind/Enum/src/EnumCore.php');
+include('../vendor/fixmind/Enum/src/Enum.php');
+include('../src/Tag/Enum/NotClosedTag.php');
 include('../src/Tag/Tag.php');
 include('../src/Html.php');
 

@@ -8,6 +8,8 @@
  */
 namespace FixMind\PhpToHtml\Tag;
 
+use FixMind\PhpToHtml\Tag\Enum\NotClosedTag;
+
 class Tag extends Attribute
 {
 
@@ -257,7 +259,7 @@ class Tag extends Attribute
 
 	private function isNotClosedTag()
 	{
-		return preg_match('/^(img|br|hr|input)$/i', $this->tag);
+		return preg_match('/^(' . implode('|', NotClosedTag::getOptionList()) . ')$/i', $this->tag);
 	}
 
 	private function validTagName(&$tagName)
