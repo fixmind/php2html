@@ -260,8 +260,9 @@ class Tag extends Attribute
 		return preg_match('/^(img|br|hr|input)$/i', $this->tag);
 	}
 
-	private function validTagName($tagName)
+	private function validTagName(&$tagName)
 	{
+		$tagName = strtolower($tagName);
 		if (preg_match('/^[a-z0-9]{1}[a-z0-9-]*$/', $tagName) == true)
 		{
 			return true;
