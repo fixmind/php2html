@@ -3,6 +3,7 @@
 
 // EXAMPLE 01
 echo Html::ul()->li('first point')->getParent()->li('second point');
+
 // <ul>
 //     <li>first point</li>
 //     <li>second point</li>
@@ -27,6 +28,7 @@ $html = Html::div()->addClass('box')
                             ->li('subFirst')->getParent()
                             ->li('subSecond');
 echo $html;
+
 // <div class="box">
 //    <ul>
 //      <li>first</li>
@@ -51,6 +53,7 @@ echo $html;
 $html->selectorFirst('ul ul')->addClass('sub');
 $html->selectorLast('ul ul li')->addId('subLastId');
 echo $html;
+
 // <div class="box">
 //     <ul>
 //         <li>first</li>
@@ -68,6 +71,7 @@ echo $html;
 $html->selectorFirst('ul.sub')->li('subThird');
 $html->selectorFirst('#subLastId')->addText('!!!');
 echo $html;
+
 // <div class="box">
 //     <ul>
 //         <li>first</li>
@@ -88,6 +92,7 @@ foreach($html->selector('ul') as $ul)
     $ul->addClass('myUl');
 }
 echo $html;
+
 // <div class="box">
 //     <ul class="myUl">
 //         <li>first</li>
@@ -101,5 +106,20 @@ echo $html;
 //         <li>third</li>
 //     </ul>
 // </div>
+
+```
+
+# Show part of HTML
+```php
+
+// EXAMPLE 01
+// $html from previous example
+echo $html->selectorFirst('ul.sub')->render();
+
+// <ul class="sub myUl">
+//     <li>subFirst</li>
+//     <li id="subLastId">subSecond!!!</li>
+//     <li>subThird</li>
+// </ul>
 
 ```

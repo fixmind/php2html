@@ -12,38 +12,47 @@ include('../src/Html.php');
 
 use FixMind\PhpToHtml\Html;
 
-$div = Html::pre()
-			->div()->addText('Hello World!')
-				->a()->addText('to jest link')->getParent()
-				->b()->addAttr('color', '#AC0000')->addText('to na prawdę działa!')
-				->span()->addText('To jest')->i()->addText('italic')->getParent()->addText('.')
-				->getParent()->getParent()
-				->addText(' Super!')
+// CREATION HTML STRUCTURE
+$html = Html::pre()
+			->div()
+				->h1('Hello World')->addStyle('color', '#777')->getParent()
+				->h2('Php')->addText('To')->addText('Html')->addStyle('color', '#AC0000')->getParent()
 				->ul()->addId('idUl')
-					->li()->addText('to punkt pierwszy')->getParent()
-					->li()->addClass('mark')->addText('to jest punkt drugi')->getParent()
-					->addText('taki text tutaj')
-					->li()->addText('kolejny trzeci punkt')->getParent()
-					->addText('taki text tutaj')
-					->li()->addText('czwarty element')
-					->getParent()->getFirst()->addText('[firstELEMENT]')
-					->getParent()->getLast()->addText('[lastElement]')
-					->getParent()->getLast(3)->addText('[trzeciElementOdKonca]')->addClass('thirdElement')->addId('specialElement')
-					->getParent()->getLastTag(3)->addText('[trzeciTagOdKonca]')
-					->getParent()->getFirstTag(3)->addText('[trzeciTagOdPoaczatku]')
-					->getParent()->getFirst(4)->addText('[czwartyElementOdPoczatku]')
-						->ul()->addClass('thisOne')
-							->li('x')->getParent()
-							->li('x2')->getParent()
-							->li('y')
+					->li('first point')->getParent()
+					->li('second point')->addClass('mark')->getParent()
+					->li('third point')->getParent()
+					->li('fourth point')->getParent()
+						->getFirst()->addText('[firstPoint]')->getParent()
+						->getLast()->addText('[lastPoint]')->getParent()
+						->getLast(3)->addText('[thirdPointFromLast]')->addClass('secondPoint')->addId('specialPoint')->getParent()
+						->getFirstTag(3)->addText('[thirdPointFromFirst]')->getParent()
+						->selectorFirst('.secondPoint')
+						->ul()->addClass('subUl')
+							->li('p1')->getParent()
+							->li('p2')->getParent()
+							->li('p3')
 								->ul()
-									->li('q')->getParent()
-									->li('w')->a('link')->getParent()->getParent()
-									->li('e')->getParent()->getParent()->getParent()
-							->li('z')->getParent()
-							->li('v');
+									->li('sub1')->getParent()
+									->li()->strong('sub2')->addClass('markThis')->addStyle('color', '#AC0000')->getParent()->getParent()
+									->li('sub3')->getParent()->getParent()->getParent()
+							->li('p4')->getParent()
+							->li('p5');
 
-$found = $div->selector('.thisOne ul li');
-$found[1]->addClass('wClass');
-echo $div;
+// MODIFICATIONS
+$html->selectorFirst('.markThis')->addText('***');
+$html->selectorFirst('.mark')->addText('***');
+$html->selectorFirst('h1')->addText('!!!');
+$html->selectorFirst('#specialPoint')->addStyle('list-style', 'circle');
+
+$subListElement = $html->selector('.secondPoint li li');
+foreach($subListElement as $tag)
+{
+	$tag->addStyle('background', '#FFFF88');
+}
+
+// ENTIRE OBJECT
+echo $html;
+
+// PART OF OBJECT
+echo $html->selectorFirst('ul ul')->render();
 
