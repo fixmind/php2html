@@ -30,7 +30,7 @@
 	},
 	"autoload-dev" : {
 		"psr-4" : {
-			"FixMind\\Tests\\PhpToHtml\\" : "tests/"
+			"FixMind\\PhpToHtml\\Tests\\" : "tests/"
 		}
 	}
 }

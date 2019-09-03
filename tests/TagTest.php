@@ -6,7 +6,7 @@
  * Available via the MIT or new BSD @license.
  * Project: https://github.com/fixmind/phptohtml/
  */
-namespace FixMind\Tests\PhpToHtml;
+namespace FixMind\PhpToHtml\Tests;
 
 use FixMind\PhpToHtml\Tag\Tag;
 
